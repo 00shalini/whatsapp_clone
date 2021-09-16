@@ -3,10 +3,12 @@ import { Sidebar } from "./Components/Sidebar";
 import {Chat} from './Components/Chat';
 import React from "react";
 import { Login } from "./Components/Login";
+import { useStateValue } from "./Components/StateProvider";
+
 
 function App() {
 
-  const [user, setUser] = React.useState(null)
+  const [{user}, dispatch] = useStateValue();
 
   return (
    
