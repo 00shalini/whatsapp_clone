@@ -15,6 +15,12 @@ import SearchOutlined from '@material-ui/icons/SearchOutlined';
 import { SidebarChat } from "./SidebarChat";
 
 function Sidebar() {
+
+  const [room, setRoom ]  = React.useState([])
+
+  React.useEffect(() => {
+    
+  })
   return (
     <SidebarCont>
       <SidebarHeader>

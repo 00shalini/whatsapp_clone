@@ -1,30 +1,46 @@
 import { Avatar, IconButton } from "@material-ui/core";
 import React from "react";
-import { ChatBody, ChatDetail, ChatFooter ,ChatHeader, ChatHeaderInfo, ChatHeaderRight} from "./Chatstyle";
+import {
+  ChatBody,
+  ChatConvo,
+  ChatDetail,
+  ChatFooter,
+  ChatHeader,
+  ChatHeaderInfo,
+  ChatHeaderRight,
+  ChatName,
+  ChatTimestamp,
+} from "./Chatstyle";
 import DonutLargeIcon from "@material-ui/icons/DonutLargeOutlined";
 import MoreVerticon from "@material-ui/icons/MoreVert";
-import AttachFile from '@material-ui/icons/AttachFile';
+import AttachFile from "@material-ui/icons/AttachFile";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import MicIcon from "@material-ui/icons/Mic";
 
 function Chat() {
+   const [input, setInput] = React.useState('') 
+  const [seed, setSeed] = React.useState("");
 
-    const [seed, setSeed] = React.useState('')
+  React.useEffect(() => {
+    setSeed(Math.floor(Math.random() * 5000));
+  }, []);
 
-
-    React.useEffect(() => {
-      setSeed(Math.floor(Math.random()* 5000));
-    },[])
-
+  const sendmessage = (e) => {
+    e.preventDefault()
+    console.log(input)
+    setInput('')
+  }
 
   return (
-         <ChatDetail>
+    <ChatDetail>
       <ChatHeader>
-         <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
-         <ChatHeaderInfo>
-             <h3>Room name</h3>
-             <p>Last seen at</p>
-         </ChatHeaderInfo>
-         <ChatHeaderRight>
-         <IconButton>
+        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <ChatHeaderInfo>
+          <h3>Room name</h3>
+          <p>Last seen at</p>
+        </ChatHeaderInfo>
+        <ChatHeaderRight>
+          <IconButton>
             <DonutLargeIcon />
           </IconButton>
           <IconButton>
@@ -33,16 +49,25 @@ function Chat() {
           <IconButton>
             <MoreVerticon />
           </IconButton>
-         </ChatHeaderRight>
+        </ChatHeaderRight>
       </ChatHeader>
       <ChatBody>
-
+        <ChatConvo>
+          <ChatName>Shalini Sharma</ChatName>
+          hey guys
+          <ChatTimestamp>3:52 pm</ChatTimestamp>
+        </ChatConvo>
+        <ChatConvo>hey guys</ChatConvo>
       </ChatBody>
       <ChatFooter>
-
+        <InsertEmoticonIcon />
+        <form>
+          <input placeholder='Type a message' type="text" value={input} onChange={(e) => setInput(e.target.value)}/>
+          <button onClick={sendmessage} type='submit'>Send a message</button>
+        </form>
+        <MicIcon />
       </ChatFooter>
-  </ChatDetail>
-
+    </ChatDetail>
   );
 }
 
