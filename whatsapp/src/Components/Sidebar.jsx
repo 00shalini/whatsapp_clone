@@ -13,18 +13,20 @@ import ChatIcon from "@material-ui/icons/Chat";
 import MoreVerticon from "@material-ui/icons/MoreVert";
 import SearchOutlined from '@material-ui/icons/SearchOutlined';
 import { SidebarChat } from "./SidebarChat";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
 
   const [room, setRoom ]  = React.useState([])
+  const [{user}, dispatch] = useStateValue()
 
   React.useEffect(() => {
-    
+
   })
   return (
     <SidebarCont>
       <SidebarHeader>
-        <Avatar />
+        <Avatar src={user?.photoURL}/>
         <SidebarHeaderRight>
           <IconButton>
             <DonutLargeIcon />
