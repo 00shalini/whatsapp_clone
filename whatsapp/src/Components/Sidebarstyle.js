@@ -4,6 +4,18 @@ export const SidebarCont = styled.div `
   display: flex;
   flex: .35;
   flex-direction: column;
+
+  border: 1px solid black;
+
+  @media (max-width:376px) {
+      flex: 1;
+      flex-direction: column;
+      width:101%;
+      height: 810px;
+      margin-left: -10px;
+      margin-right: -10px;
+      margin-top: -15px;
+  }
 `
 
 export const SidebarSearch = styled.div ` 
@@ -21,7 +33,8 @@ display: flex;
 justify-content: space-between;
 padding: 20px;
 border: 1px solid lightgray;
-`
+
+`;
 
 export const SidebarChats = styled.div ` 
  flex: 1;

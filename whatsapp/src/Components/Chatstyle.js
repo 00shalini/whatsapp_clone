@@ -1,10 +1,16 @@
 import styled, {css} from "styled-components";
 
+
+
 export const ChatDetail = styled.div`
   flex: .65;
   display: flex;
   flex-direction: column;
+
+ 
 `;
+
+
 
 
 export const ChatHeader = styled.div ` 

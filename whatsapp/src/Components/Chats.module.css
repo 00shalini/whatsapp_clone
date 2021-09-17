@@ -1,0 +1,5 @@
+.chatdetail {
+    @media (max-width: 376px) {
+        display: none;
+    }
+}
