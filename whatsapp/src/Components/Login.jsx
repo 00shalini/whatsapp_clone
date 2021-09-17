@@ -7,7 +7,11 @@ import { actiontypes } from "./reducer";
 
 function Login() {
 
+
+  // The dispatch function retrieves the user object on login with gmail account.
     const [{}, dispatch] = useStateValue()
+
+    //The signin method to login with google using firebase authentication.
   const signin = () => {
     auth
       .signInWithPopup(provider)

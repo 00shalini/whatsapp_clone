@@ -17,7 +17,7 @@ import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
 
-  const [room, setRoom ]  = React.useState([])
+
   const [{user}, dispatch] = useStateValue()
 
   React.useEffect(() => {

@@ -1,3 +1,5 @@
+// This reducer will check whther the user is logged in.
+
 export const initialstate = {
     user: null
 }
