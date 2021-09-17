@@ -14,7 +14,7 @@ function SidebarChat({ addNewChat, openchat, id, name, state }) {
         setMsg(snapshot.docs.map((doc) => doc.data()))
       });
     };
-  },[])
+  },[id])
 
   React.useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
