@@ -17,14 +17,20 @@ import AttachFile from "@material-ui/icons/AttachFile";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 
+
+// Chat details which shows messages, timestamp, user.
 function Chat() {
   const [input, setInput] = React.useState("");
   const [seed, setSeed] = React.useState("");
 
+
+  // This useEffect is generating random id to create avatar url.
   React.useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
   }, []);
 
+
+  //The sendmessage function store new message send by new user.
   const sendmessage = (e) => {
     e.preventDefault();
     console.log(input);
