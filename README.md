@@ -6,9 +6,6 @@
 
 * [Installation](#installation)
 * [Libery Used](#libery-used)
-* [File Structure](#file-structure)
-* [Contributors](#contributors)
-* [Reporting Issues](#reporting-issues)
 
 ## Installation
 
@@ -26,4 +23,8 @@
 * Firebase
 * express
 * cors
+
+### Glimpse of my work
+![whatsapp](https://github.com/00shalini/whatsapp_clone/blob/master/whatsapp/src/Images/Screenshot%202021-09-17%20091928.jpg)
+![Chat](https://github.com/00shalini/whatsapp_clone/blob/master/whatsapp/src/Images/Screenshot%202021-09-17%20092040.jpg)
 
