@@ -6,20 +6,18 @@ import { useStateValue } from "./StateProvider";
 import { actiontypes } from "./reducer";
 
 function Login() {
-
-
   // The dispatch function retrieves the user object on login with gmail account.
-    const [{}, dispatch] = useStateValue()
+  const [{}, dispatch] = useStateValue();
 
-    //The signin method to login with google using firebase authentication.
+  //The signin method to login with google using firebase authentication.
   const signin = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-          dispatch({
-              type: actiontypes.SET_USER,
-              user:result.user
-          })
+        dispatch({
+          type: actiontypes.SET_USER,
+          user: result.user,
+        });
       })
       .catch((error) => alert(error.message));
   };
