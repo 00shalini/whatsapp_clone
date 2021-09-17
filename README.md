@@ -12,7 +12,18 @@
 
 ## Installation
 
-* git clone **https://github.com/shubham007kumar/Makemytrip.git** 
+* git clone **https://github.com/00shalini/whatsapp_clone.git** 
 * npm install
 * npm start
-* npm run server
+
+
+## Libery Used
+
+* Styled Component
+* Material Ui
+* Redux
+* React-redux
+* Firebase
+* express
+* cors
+
