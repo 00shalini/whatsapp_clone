@@ -5,7 +5,6 @@ export const SidebarCont = styled.div `
   flex: .35;
   flex-direction: column;
 
-  border: 1px solid black;
 
   @media (max-width:376px) {
       flex: 1;

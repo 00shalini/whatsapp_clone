@@ -51,28 +51,6 @@ export const ChatBody = styled.div `
   overflow: scroll;
 `;
 
-const ChatMessage = css `
-    position: relative;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 10px;
-    width: fit-content;
-    background-color: white;
-    margin-bottom: 30px;
-
-
-`;
-
-const ChatReciever = css `
-
- margin-left: auto;
- background-color: #dcf8c6;
-`
-export const ChatConvo = styled.div`
-     ${ChatMessage}
-     ${ChatReciever}
-`;
-
 
 export const ChatName =styled.span ` 
   position: absolute;
