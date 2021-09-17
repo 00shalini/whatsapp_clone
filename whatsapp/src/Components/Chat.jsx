@@ -18,9 +18,11 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import { Sidebar } from "./Sidebar";
-import { styles } from "./Chats.module.css";
+import "./Chats.css";
 import { useParams } from "react-router-dom";
 import db from "./firebase";
+import firebase from "firebase";
+import { useStateValue } from "./StateProvider";
 
 // Chat details which shows messages, timestamp, user.
 function Chat({ state }) {
@@ -30,6 +32,7 @@ function Chat({ state }) {
   const { userId } = useParams();
   const [username, SetUsername] = React.useState("");
   const [messages, setMessages] = React.useState([]);
+  const [{ user }, dispatch] = useStateValue();
 
   React.useEffect(() => {
     if (userId) {
@@ -55,7 +58,12 @@ function Chat({ state }) {
   //The sendmessage function store new message send by new user.
   const sendmessage = (e) => {
     e.preventDefault();
-    console.log(input);
+
+    db.collection("users").doc(userId).collection("messages").add({
+      message: input,
+      name: user.displayName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
     setInput("");
   };
 
@@ -66,7 +74,13 @@ function Chat({ state }) {
         <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
         <ChatHeaderInfo>
           <h3>{username}</h3>
-          <p>Last seen at</p>
+          <p>Lasr seen{" "}
+            {
+              new Date(
+                messages[messages.length-1]?.timestamp?.toDate()
+              ).toUTCString()
+            }
+          </p>
         </ChatHeaderInfo>
         <ChatHeaderRight>
           <IconButton>
@@ -81,18 +95,15 @@ function Chat({ state }) {
         </ChatHeaderRight>
       </ChatHeader>
       <ChatBody>
-        {messages.map((message) => 
-
-            <ChatConvo>
+        {messages.map((message) => (
+          <p className={`chatmessage ${message.name === user.displayName && 'chatreceiver'}`}>
             <ChatName>{message.name}</ChatName>
-             {message.message}
+            {message.message}
             <ChatTimestamp>
               {new Date(message.timestamp?.toDate()).toUTCString()}
             </ChatTimestamp>
-            </ChatConvo>
-           
-        )}
-      
+          </p>
+        ))}
       </ChatBody>
       <ChatFooter>
         <InsertEmoticonIcon />
